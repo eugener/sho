@@ -8,9 +8,9 @@
 import SwiftUI
 
 var codeEntryList = [
-    CodeEntry(name: "AWS", userId: "steve@example.com", code: "123 456"),
-    CodeEntry(name: "GitHub", userId: "steve@example.com", code: "987 654"),
-    CodeEntry(name: "EzWare", userId: "steve@xxx.com", code: "987 654"),
+    CodeEntry(name: "AWS", userId: "steve@example.com", secret: "JBSWY3DPEHPK3PXP"),
+    CodeEntry(name: "GitHub", userId: "steve@example.com", secret: "JBSWY3DPEHPK3PXP"),
+    CodeEntry(name: "EzWare", userId: "steve@xxx.com", secret: "JBSWY3DPEHPK3PXP"),
 ]
 
 struct ContentView: View {
@@ -21,9 +21,9 @@ struct ContentView: View {
                     let entry = codeEntryList[i]
                     AuthenticatorEntryView(
                         iconName: "globe",
-                        serviceName: entry.name,
-                        userId: entry.userId,
-                        code: entry.code,
+                        serviceName: entry.serviceName,
+                        userId: entry.userName,
+                        code: entry.secret,
                         timeRemaining: 23 // or dynamic value
                     )
                 }

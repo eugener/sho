@@ -1,5 +1,6 @@
 import SwiftUI
 
+// TODO : Cache logos
 struct CompanyLogoView: View {
     let companyName: String
     let size: CGFloat
