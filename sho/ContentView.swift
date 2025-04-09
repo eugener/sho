@@ -8,9 +8,9 @@
 import SwiftUI
 
 var codeEntryList = [
-    CodeEntry(name: "AWS", userId: "steve@example.com", secret: "JBSWY3DPEHPK3PXP"),
+    CodeEntry(name: "AWS", userId: "steve@example.com", secret: "JBSWY3DXEHPK3PXP"),
     CodeEntry(name: "GitHub", userId: "steve@example.com", secret: "JBSWY3DPEHPK3PXP"),
-    CodeEntry(name: "EzWare", userId: "steve@xxx.com", secret: "JBSWY3DPEHPK3PXP"),
+    CodeEntry(name: "EzWare", userId: "steve@xxx.com", secret: "JBSWY3DPCSPK3PXP"),
 ]
 
 struct ContentView: View {
@@ -23,7 +23,7 @@ struct ContentView: View {
                         iconName: "globe",
                         serviceName: entry.serviceName,
                         userId: entry.userName,
-                        code: entry.secret,
+                        code: entry.generateCode(),
                         timeRemaining: 23 // or dynamic value
                     )
                 }

@@ -8,7 +8,6 @@
 import SwiftUICore
 import UIKit
 
-
 struct AuthenticatorEntryView: View {
     let iconName: String
     let serviceName: String
@@ -42,10 +41,16 @@ struct AuthenticatorEntryView: View {
 
                 // Code + Time Remaining
                 VStack(alignment: .trailing, spacing: 8) {
-                    Text(code)
-                        .font(.system(size: 28, design: .monospaced))
-                        .foregroundColor(.blue)
-                        .bold()
+                    HStack(spacing: 4) {
+                        ForEach(formatCode(code), id: \.self) { part in
+                            Text(part)
+                                .kerning(-1)
+//                                .tracking(-1.5)
+                                .font(.system(.title, design: .monospaced))
+                                .foregroundColor(.blue)
+//                                .bold()
+                        }
+                    }
 
                     Text("\(timeRemaining)s")
                         .font(.footnote)
@@ -77,6 +82,14 @@ struct AuthenticatorEntryView: View {
         .overlay(
             ToastView(message: "Code Copied", isShowing: $showCopied)
         )
+    }
+    
+    private func formatCode(_ code: String) -> [String] {
+        if code.count > 3 {
+            return [String(code.prefix(3)), String(code.dropFirst(3))]
+        } else {
+            return [code]
+        }
     }
 }
 
